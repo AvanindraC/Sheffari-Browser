@@ -1,6 +1,6 @@
 echo "Installing Sheffari Browser..."
 cd ~/Downloads
-wget "https://github.com/XApple-Team/Sheffari-Browser/releases/download/0.1.4/sheffari"
+wget "https://github.com/Mengo-Team/Sheffari-Browser/releases/download/0.1.4/sheffari"
 wget https://cdn1.iconfinder.com/data/icons/hawcons/32/700146-icon-62-compass-512.png
 echo "Adding Sheffari to PATH..."
 

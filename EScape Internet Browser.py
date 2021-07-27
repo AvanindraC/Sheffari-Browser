@@ -54,13 +54,13 @@ class MainWindow(QMainWindow):
         stop_btn.triggered.connect(lambda: self.tabs.currentWidget().stop())
         navtb.addAction(stop_btn)
   
-        self.add_new_tab(QUrl('https://XApple-Team.github.io/SheffariHomePage/'), 'Homepage')
+        self.add_new_tab(QUrl('https://Mengo-Team.github.io/SheffariHomePage/'), 'Homepage')
   
         self.show()
-        self.setWindowTitle("XApple Sheffari Web Browser")
+        self.setWindowTitle("Mengo Sheffari Web Browser")
     def add_new_tab(self, qurl = None, label ="Blank"):
         if qurl is None:
-            qurl = QUrl('https://XApple-Team.github.io/SheffariHomePage/')
+            qurl = QUrl('https://Mengo-Team.github.io/SheffariHomePage/')
   
         browser = QWebEngineView()
   
@@ -101,7 +101,7 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("% s - Sheffari Web Browser" % title)
   
     def navigate_home(self):
-        self.tabs.currentWidget().setUrl(QUrl("https://XApple-Team.github.io/SheffariHomePage/"))
+        self.tabs.currentWidget().setUrl(QUrl("https://Mengo-Team.github.io/SheffariHomePage/"))
   
     def navigate_to_url(self):
         q = QUrl(self.urlbar.text())
