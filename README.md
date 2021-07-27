@@ -1,5 +1,5 @@
 # Sheffari-Browser
-Kinda clone of the Safari Browser, another addition to [MkOsh Project](https://github.com/arghyagod-coder/MkOsh). I decided to make one Safari-type app for MkOsh. Just for fun! The MkOsh project goes more interesting in every step I proceed. It's kinda like a custom suite of applications. 
+Kinda clone of the Safari Browser, another addition to [MkOsh Project](https://github.com/XApple-Team/MkOsh). I decided to make one Safari-type app for MkOsh. Just for fun! The MkOsh project goes more interesting in every step I proceed. It's kinda like a custom suite of applications. 
 
 ![abt](assets/sheffari.png)
 
@@ -7,7 +7,7 @@ Kinda clone of the Safari Browser, another addition to [MkOsh Project](https://g
 
 ## ✨ Features
 
-- Fits Perfect on my [MkOsh Monterey](https://github.com/arghyagod-coder/MkOsh) theme
+- Fits Perfect on my [MkOsh Monterey](https://github.com/XApple-Team/MkOsh) theme
 - Lightweight
 - Not much of features, hence as some say, **BLOATLESS**
 - Has some serious beauty out there
@@ -23,19 +23,19 @@ Now install depends on which shell you use
 #### Bash Users:
 
 ```bash
-curl https://raw.githubusercontent.com/arghyagod-coder/Sheffari-Browser/master/bash_install.sh > minstall.sh;chmod +x ./minstall.sh;sudo bash ./minstall.sh
+curl https://raw.githubusercontent.com/XApple-Team/Sheffari-Browser/master/bash_install.sh > minstall.sh;chmod +x ./minstall.sh;sudo bash ./minstall.sh
 ```
 
 #### Fish Users:
 
 ```bash
-curl https://raw.githubusercontent.com/arghyagod-coder/Sheffari-Browser/master/fish_install.sh > minstall.sh;chmod +x ./minstall.sh;sudo fish ./minstall.sh
+curl https://raw.githubusercontent.com/XApple-Team/Sheffari-Browser/master/fish_install.sh > minstall.sh;chmod +x ./minstall.sh;sudo fish ./minstall.sh
 ```
 
 #### Zsh Users:
 
 ```bash
-curl https://raw.githubusercontent.com/arghyagod-coder/Sheffari-Browser/master/zsh_install.sh > minstall.sh; chmod +x ./minstall.sh;sudo zsh ./minstall.sh
+curl https://raw.githubusercontent.com/XApple-Team/Sheffari-Browser/master/zsh_install.sh > minstall.sh; chmod +x ./minstall.sh;sudo zsh ./minstall.sh
 ```
 
 <br>
@@ -45,6 +45,6 @@ Just check your launcher/menu, the app will be there.
 
 ## More of MkOsh Project:
 
-- [The Desktop](https://github.com/arghyagod-coder/MkOsh)
+- [The Desktop](https://github.com/XApple-Team/MkOsh)
 
-- [About The MkOsh App](https://github.com/arghyagod-coder/MkAbout)
+- [About The MkOsh App](https://github.com/XApple-Team/MkAbout)
