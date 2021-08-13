@@ -140,8 +140,6 @@ class MainWindow(QMainWindow):
         self.urlbar.setText(q.toString())
         self.urlbar.setCursorPosition(0)
     def fullscreen(self):
-        flags = Qt.WindowFlags(Qt.FramelessWindowHint)
-        self.setWindowFlags(flags)
         self.showFullScreen()
     def darkmode(self):
         self.setStyleSheet(f"background-color: {bgc}")
