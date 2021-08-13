@@ -6,11 +6,19 @@ from PyQt5.QtWebEngineWidgets import *
 from PyQt5.QtPrintSupport import * 
 import os
 import sys
-  
+bgc = 'black;'
+butc = 'white;'
+
 class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
+        self.showMaximized()
+        self.setWindowIcon(QIcon("icon.png"))
+        
+        self.setStyleSheet(f"background-color: {bgc}")
         self.tabs = QTabWidget()
+        self.tabs.setStyleSheet(f"background-color: {bgc}")
+        
         self.tabs.setDocumentMode(True)
         self.tabs.tabBarDoubleClicked.connect(self.tab_open_doubleclick)
         self.tabs.currentChanged.connect(self.current_tab_changed)
@@ -19,40 +27,56 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.tabs)
         self.status = QStatusBar()
         self.setStatusBar(self.status)
-        navtb = QToolBar("Navigation")
-        self.addToolBar(navtb)
+        self.navtb = QToolBar("Navigation")
+        self.addToolBar(self.navtb)
+        self.navtb.setStyleSheet(f"background-color: {bgc}")
+        self.navtb.setStyleSheet(f"color: {butc}")
         back_btn = QAction("Back", self)
+        
         back_btn.setStatusTip("Back to previous page")
         back_btn.triggered.connect(lambda: self.tabs.currentWidget().back())
-        navtb.addAction(back_btn)
+        self.navtb.addAction(back_btn)
   
         next_btn = QAction("Forward", self)
         next_btn.setStatusTip("Forward to next page")
         next_btn.triggered.connect(lambda: self.tabs.currentWidget().forward())
-        navtb.addAction(next_btn)
+        self.navtb.addAction(next_btn)
   
         reload_btn = QAction("Reload", self)
         reload_btn.setStatusTip("Reload page")
         reload_btn.triggered.connect(lambda: self.tabs.currentWidget().reload())
-        navtb.addAction(reload_btn)
+        self.navtb.addAction(reload_btn)
   
         home_btn = QAction("Home", self)
         home_btn.setStatusTip("Go home")
   
         home_btn.triggered.connect(self.navigate_home)
-        navtb.addAction(home_btn)
+        dmode = QAction("Dark Mode", self)
+        dmode.setStatusTip("Change to Dark Mode")
   
-        navtb.addSeparator()
+        dmode.triggered.connect(self.darkmode)
+        self.navtb.addAction(dmode)
+        lmode = QAction("Light Mode", self)
+        lmode.setStatusTip("Change to Light Mode")
+        self.navtb.addAction(lmode)
+  
+        lmode.triggered.connect(self.lightmode)
+        self.navtb.addAction(home_btn)
+        fs = QAction("Fullscreen", self)
+        fs.setStatusTip("Get fullscreen")
+        fs.triggered.connect(self.fullscreen)
+        self.navtb.addAction(fs)
+        self.navtb.addSeparator()
   
         self.urlbar = QLineEdit()
         self.urlbar.returnPressed.connect(self.navigate_to_url)
   
-        navtb.addWidget(self.urlbar)
+        self.navtb.addWidget(self.urlbar)
   
-        stop_btn = QAction("Stop", self)
-        stop_btn.setStatusTip("Stop loading current page")
-        stop_btn.triggered.connect(lambda: self.tabs.currentWidget().stop())
-        navtb.addAction(stop_btn)
+        stop_btn = QAction("Exit", self)
+        stop_btn.setStatusTip("Exit Sheffari")
+        stop_btn.triggered.connect(self.close)
+        self.navtb.addAction(stop_btn)
   
         self.add_new_tab(QUrl('https://Mengo-Team.github.io/SheffariHomePage/'), 'Homepage')
   
@@ -115,7 +139,20 @@ class MainWindow(QMainWindow):
 
         self.urlbar.setText(q.toString())
         self.urlbar.setCursorPosition(0)
-  
+    def fullscreen(self):
+        flags = Qt.WindowFlags(Qt.FramelessWindowHint)
+        self.setWindowFlags(flags)
+        self.showFullScreen()
+    def darkmode(self):
+        self.setStyleSheet(f"background-color: {bgc}")
+        self.tabs.setStyleSheet(f"background-color: {bgc}")
+        self.navtb.setStyleSheet(f"background-color: {bgc}")
+        self.navtb.setStyleSheet(f"color: {butc}")
+    def lightmode(self):
+        self.setStyleSheet(f"background-color: {butc}")
+        self.tabs.setStyleSheet(f"background-color: {butc}")
+        self.navtb.setStyleSheet(f"background-color: {butc}")
+        self.navtb.setStyleSheet(f"color: {bgc}")
 if __name__=="__main__":
     app = QApplication(sys.argv)
     app.setApplicationName("Sheffari")
