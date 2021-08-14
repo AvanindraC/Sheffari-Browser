@@ -8,13 +8,21 @@ import os
 import sys
 bgc = 'black;'
 butc = 'white;'
-
+def _downloadRequested(item):
+    print('downloading to', item.path())
+    item.accept()
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Information)
+    msg.setText("Downloading file")
+    msg.setWindowTitle("Downloading file")
+    msg.setStandardButtons(QMessageBox.Ok)
+    msg.exec_()
 class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
         self.showMaximized()
         self.setWindowIcon(QIcon("icon.png"))
-        
+            
         self.setStyleSheet(f"background-color: {bgc}")
         self.tabs = QTabWidget()
         self.tabs.setStyleSheet(f"background-color: {bgc}")
@@ -87,7 +95,8 @@ class MainWindow(QMainWindow):
             qurl = QUrl('https://Mengo-Team.github.io/SheffariHomePage/')
   
         browser = QWebEngineView()
-  
+        browser.page().profile().downloadRequested.connect(_downloadRequested)   
+        
         browser.setUrl(qurl)
   
         i = self.tabs.addTab(browser, label)
@@ -130,7 +139,7 @@ class MainWindow(QMainWindow):
     def navigate_to_url(self):
         q = QUrl(self.urlbar.text())
         if q.scheme() == "":
-            q.setScheme("http")
+            q.setScheme("https")
         self.tabs.currentWidget().setUrl(q)
   
     def update_urlbar(self, q, browser = None):
@@ -151,6 +160,7 @@ class MainWindow(QMainWindow):
         self.tabs.setStyleSheet(f"background-color: {butc}")
         self.navtb.setStyleSheet(f"background-color: {butc}")
         self.navtb.setStyleSheet(f"color: {bgc}")
+   
 if __name__=="__main__":
     app = QApplication(sys.argv)
     app.setApplicationName("Sheffari")
